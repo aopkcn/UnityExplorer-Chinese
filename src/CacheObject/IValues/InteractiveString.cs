@@ -72,7 +72,7 @@ namespace UnityExplorer.CacheObject.IValues
 
             if (string.IsNullOrEmpty(SaveFilePath.Text))
             {
-                ExplorerCore.LogWarning("Cannot save an empty file path!");
+                ExplorerCore.LogWarning("无法保存空文件路径!");
                 return;
             }
 
@@ -95,13 +95,13 @@ namespace UnityExplorer.CacheObject.IValues
             UIFactory.SetLayoutElement(SaveFileRow, flexibleWidth: 9999);
             UIFactory.SetLayoutGroup<VerticalLayoutGroup>(SaveFileRow, false, true, true, true, 3);
 
-            UIFactory.CreateLabel(SaveFileRow, "Info", "<color=red>String is too long! Save to file if you want to see the full string.</color>",
+            UIFactory.CreateLabel(SaveFileRow, "Info", "<color=red>字符串太长！ 如果要查看完整字符串，请保存到文件.</color>",
                 TextAnchor.MiddleLeft);
 
             GameObject horizRow = UIFactory.CreateUIObject("Horiz", SaveFileRow);
             UIFactory.SetLayoutGroup<HorizontalLayoutGroup>(horizRow, false, false, true, true, 4);
 
-            ButtonRef saveButton = UIFactory.CreateButton(horizRow, "SaveButton", "Save file");
+            ButtonRef saveButton = UIFactory.CreateButton(horizRow, "SaveButton", "保存文件");
             UIFactory.SetLayoutElement(saveButton.Component.gameObject, minHeight: 25, minWidth: 100, flexibleWidth: 0);
             saveButton.OnClick += OnSaveFileClicked;
 
@@ -110,11 +110,11 @@ namespace UnityExplorer.CacheObject.IValues
 
             // Main Input / apply
 
-            ApplyButton = UIFactory.CreateButton(UIRoot, "ApplyButton", "Apply", new Color(0.2f, 0.27f, 0.2f));
+            ApplyButton = UIFactory.CreateButton(UIRoot, "ApplyButton", "应用", new Color(0.2f, 0.27f, 0.2f));
             UIFactory.SetLayoutElement(ApplyButton.Component.gameObject, minHeight: 25, minWidth: 100, flexibleWidth: 0);
             ApplyButton.OnClick += OnApplyClicked;
 
-            inputField = UIFactory.CreateInputField(UIRoot, "InputField", "empty");
+            inputField = UIFactory.CreateInputField(UIRoot, "InputField", "空的");
             inputField.UIRoot.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
             UIFactory.SetLayoutElement(inputField.UIRoot, minHeight: 25, flexibleHeight: 500, flexibleWidth: 9999);
             inputField.Component.lineType = InputField.LineType.MultiLineNewline;

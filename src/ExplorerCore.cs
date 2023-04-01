@@ -35,11 +35,11 @@ namespace UnityExplorer
         public static void Init(IExplorerLoader loader)
         {
             if (Loader != null)
-                throw new Exception("UnityExplorer is already loaded.");
+                throw new Exception("UnityExplorer 已经加载.");
 
             Loader = loader;
 
-            Log($"{NAME} {VERSION} initializing...");
+            Log($"{NAME} {VERSION} 初始化...");
 
             CheckLegacyExplorerFolder();
             Directory.CreateDirectory(ExplorerFolder);
@@ -64,11 +64,11 @@ namespace UnityExplorer
         {
             SceneHandler.Init();
 
-            Log($"Creating UI...");
+            Log($"创建用户界面...");
 
             UIManager.InitUI();
 
-            Log($"{NAME} {VERSION} ({Universe.Context}) initialized.");
+            Log($"{NAME} {VERSION} ({Universe.Context}) 初始化.");
 
             // InspectorManager.Inspect(typeof(Tests.TestClass));
         }
@@ -137,7 +137,7 @@ namespace UnityExplorer
             string legacyPath = Path.Combine(Loader.ExplorerFolderDestination, "UnityExplorer");
             if (Directory.Exists(legacyPath))
             {
-                LogWarning($"Attempting to migrate old 'UnityExplorer/' folder to 'sinai-dev-UnityExplorer/'...");
+                LogWarning($"正在尝试将旧的 'UnityExplorer/' 文件夹迁移到 'sinai-dev-UnityExplorer/'...");
 
                 // If new folder doesn't exist yet, let's just use Move().
                 if (!Directory.Exists(ExplorerFolder))
@@ -145,11 +145,11 @@ namespace UnityExplorer
                     try
                     {
                         Directory.Move(legacyPath, ExplorerFolder);
-                        Log("Migrated successfully.");
+                        Log("迁移成功.");
                     }
                     catch (Exception ex)
                     {
-                        LogWarning($"Exception migrating folder: {ex}");
+                        LogWarning($"异常迁移文件夹: {ex}");
                     }
                 }
                 else // We have to merge

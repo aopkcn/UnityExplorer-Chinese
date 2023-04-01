@@ -98,7 +98,7 @@ namespace UnityExplorer.Hooks
 
         public void SetAddHooksLabelType(string typeText)
         {
-            AddHooksLabel.text = $"Adding hooks to: {typeText}";
+            AddHooksLabel.text = $"添加钩子到: {typeText}";
 
             AddHooksMethodFilterInput.GameObject.SetActive(true);
             AddHooksScrollPool.UIRoot.SetActive(true);
@@ -112,7 +112,7 @@ namespace UnityExplorer.Hooks
             MethodInfo method = filteredEligibleMethods[index];
             if (!method.IsGenericMethod && HookList.hookedSignatures.Contains(method.FullDescription()))
             {
-                ExplorerCore.Log($"Non-generic methods can only be hooked once.");
+                ExplorerCore.Log($"非泛型方法只能被挂钩一次.");
                 return;
             }
             else if (method.IsGenericMethod)
@@ -145,7 +145,7 @@ namespace UnityExplorer.Hooks
             string sig = method.FullDescription();
             if (HookList.hookedSignatures.Contains(sig))
             {
-                ExplorerCore.LogWarning($"Method is already hooked!");
+                ExplorerCore.LogWarning($"方法已经挂钩!");
                 return;
             }
 
@@ -200,7 +200,7 @@ namespace UnityExplorer.Hooks
         internal static void SetEditedHook(HookInstance hook)
         {
             CurrentEditedHook = hook;
-            EditingHookLabel.text = $"Editing: {SignatureHighlighter.Parse(hook.TargetMethod.DeclaringType, false, hook.TargetMethod)}";
+            EditingHookLabel.text = $"编辑: {SignatureHighlighter.Parse(hook.TargetMethod.DeclaringType, false, hook.TargetMethod)}";
             EditorInput.Text = hook.PatchSourceCode;
         }
 
@@ -244,19 +244,19 @@ namespace UnityExplorer.Hooks
                 new Vector4(2, 2, 2, 2), new Color(0.2f, 0.2f, 0.2f));
             UIFactory.SetLayoutElement(addRow, minHeight: 25, flexibleHeight: 0, flexibleWidth: 9999);
 
-            ClassSelectorInputField = UIFactory.CreateInputField(addRow, "ClassInput", "Enter a class to add hooks to...");
+            ClassSelectorInputField = UIFactory.CreateInputField(addRow, "ClassInput", "输入一个类来添加钩子...");
             UIFactory.SetLayoutElement(ClassSelectorInputField.Component.gameObject, flexibleWidth: 9999, minHeight: 25, flexibleHeight: 0);
             TypeCompleter completer = new(typeof(object), ClassSelectorInputField, true, false, true);
             //completer.AllTypes = true;
 
-            ButtonRef addButton = UIFactory.CreateButton(addRow, "AddButton", "View Methods");
+            ButtonRef addButton = UIFactory.CreateButton(addRow, "AddButton", "查看方法");
             UIFactory.SetLayoutElement(addButton.Component.gameObject, minWidth: 110, minHeight: 25);
             addButton.OnClick += () => { OnClassSelectedForHooks(ClassSelectorInputField.Text); };
 
-            AddHooksLabel = UIFactory.CreateLabel(AddHooksRoot, "AddLabel", "Choose a class to begin...", TextAnchor.MiddleCenter);
+            AddHooksLabel = UIFactory.CreateLabel(AddHooksRoot, "AddLabel", "选择一个类别开始...", TextAnchor.MiddleCenter);
             UIFactory.SetLayoutElement(AddHooksLabel.gameObject, minHeight: 30, minWidth: 100, flexibleWidth: 9999);
 
-            AddHooksMethodFilterInput = UIFactory.CreateInputField(AddHooksRoot, "FilterInputField", "Filter method names...");
+            AddHooksMethodFilterInput = UIFactory.CreateInputField(AddHooksRoot, "FilterInputField", "筛选方法名称...");
             UIFactory.SetLayoutElement(AddHooksMethodFilterInput.Component.gameObject, minHeight: 30, flexibleWidth: 9999);
             AddHooksMethodFilterInput.OnValueChanged += OnAddHookFilterInputChanged;
 
@@ -275,26 +275,26 @@ namespace UnityExplorer.Hooks
             UIFactory.SetLayoutElement(EditorRoot, flexibleHeight: 9999, flexibleWidth: 9999);
             UIFactory.SetLayoutGroup<VerticalLayoutGroup>(EditorRoot, true, true, true, true, 2, 3, 3, 3, 3);
 
-            EditingHookLabel = UIFactory.CreateLabel(EditorRoot, "EditingHookLabel", "NOT SET", TextAnchor.MiddleCenter);
+            EditingHookLabel = UIFactory.CreateLabel(EditorRoot, "EditingHookLabel", "未设置", TextAnchor.MiddleCenter);
             EditingHookLabel.fontStyle = FontStyle.Bold;
             UIFactory.SetLayoutElement(EditingHookLabel.gameObject, flexibleWidth: 9999, minHeight: 25);
 
             Text editorLabel = UIFactory.CreateLabel(EditorRoot,
-                "EditorLabel",
-                "* Accepted method names are <b>Prefix</b>, <b>Postfix</b>, <b>Finalizer</b> and <b>Transpiler</b> (can define multiple).\n" +
-                "* Your patch methods must be static.\n" +
-                "* Hooks are temporary! Copy the source into your IDE to avoid losing work if you wish to keep it!",
+                "编辑标签",
+                "* 接受的方法名称是<b>Prefix</b>, <b>Postfix</b>, <b>Finalizer</b> 和 <b>Transpiler</b> (可以定义多个).\n" +
+                "* 您的补丁方法必须是静态的.\n" +
+                "* 钩子是临时的！ 将源代码复制到您的 IDE 中以避免丢失工作（如果您希望保留它）!",
                 TextAnchor.MiddleLeft);
             UIFactory.SetLayoutElement(editorLabel.gameObject, minHeight: 25, flexibleWidth: 9999);
 
             GameObject editorButtonRow = UIFactory.CreateHorizontalGroup(EditorRoot, "ButtonRow", false, false, true, true, 5);
             UIFactory.SetLayoutElement(editorButtonRow, minHeight: 25, flexibleWidth: 9999);
 
-            ButtonRef editorSaveButton = UIFactory.CreateButton(editorButtonRow, "DoneButton", "Save and Return", new Color(0.2f, 0.3f, 0.2f));
+            ButtonRef editorSaveButton = UIFactory.CreateButton(editorButtonRow, "DoneButton", "保存并返回", new Color(0.2f, 0.3f, 0.2f));
             UIFactory.SetLayoutElement(editorSaveButton.Component.gameObject, minHeight: 25, flexibleWidth: 9999);
             editorSaveButton.OnClick += EditorInputSave;
 
-            ButtonRef editorDoneButton = UIFactory.CreateButton(editorButtonRow, "DoneButton", "Cancel and Return", new Color(0.2f, 0.2f, 0.2f));
+            ButtonRef editorDoneButton = UIFactory.CreateButton(editorButtonRow, "DoneButton", "取消并返回", new Color(0.2f, 0.2f, 0.2f));
             UIFactory.SetLayoutElement(editorDoneButton.Component.gameObject, minHeight: 25, flexibleWidth: 9999);
             editorDoneButton.OnClick += EditorInputCancel;
 

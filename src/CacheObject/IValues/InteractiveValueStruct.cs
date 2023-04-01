@@ -29,7 +29,7 @@ namespace UnityExplorer.CacheObject.IValues
                 {
                     if (!ParseUtility.TryParse(input, field.FieldType, out val, out Exception ex))
                     {
-                        ExplorerCore.LogWarning("Unable to parse input!");
+                        ExplorerCore.LogWarning("无法解析输入!");
                         if (ex != null) ExplorerCore.Log(ex.ReflectionExToString());
                         return;
                     }

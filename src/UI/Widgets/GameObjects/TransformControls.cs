@@ -94,10 +94,10 @@ namespace UnityExplorer.UI.Widgets
                 new Vector4(2, 2, 0, 0), new Color(0.1f, 0.1f, 0.1f));
             UIFactory.SetLayoutElement(transformGroup, minHeight: 100, flexibleWidth: 9999);
 
-            PositionControl = Vector3Control.Create(this, transformGroup, "Position:", TransformType.Position);
-            LocalPositionControl = Vector3Control.Create(this, transformGroup, "Local Position:", TransformType.LocalPosition);
-            RotationControl = Vector3Control.Create(this, transformGroup, "Rotation:", TransformType.Rotation);
-            ScaleControl = Vector3Control.Create(this, transformGroup, "Scale:", TransformType.Scale);
+            PositionControl = Vector3Control.Create(this, transformGroup, "位置:", TransformType.Position);
+            LocalPositionControl = Vector3Control.Create(this, transformGroup, "本地位置:", TransformType.LocalPosition);
+            RotationControl = Vector3Control.Create(this, transformGroup, "旋转:", TransformType.Rotation);
+            ScaleControl = Vector3Control.Create(this, transformGroup, "尺度:", TransformType.Scale);
         }
     }
 }

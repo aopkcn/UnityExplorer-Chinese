@@ -93,7 +93,7 @@ namespace UnityExplorer.CSConsole
                 string startupPath = Path.Combine(ScriptsFolder, "startup.cs");
                 if (File.Exists(startupPath))
                 {
-                    ExplorerCore.Log($"Executing startup script from '{startupPath}'...");
+                    ExplorerCore.Log($"执行启动脚本，从 '{startupPath}'...");
                     string text = File.ReadAllText(startupPath);
                     Input.Text = text;
                     Evaluate();
@@ -101,7 +101,7 @@ namespace UnityExplorer.CSConsole
             }
             catch (Exception ex)
             {
-                ExplorerCore.LogWarning($"Exception executing startup script: {ex}");
+                ExplorerCore.LogWarning($"执行启动脚本时出现异常: {ex}");
             }
         }
 
@@ -135,7 +135,7 @@ namespace UnityExplorer.CSConsole
                 AddUsing(use);
 
             if (logSuccess)
-                ExplorerCore.Log($"C# Console reset");//. Using directives:\r\n{Evaluator.GetUsing()}");
+                ExplorerCore.Log($"C# 控制台复位");//. Using directives:\r\n{Evaluator.GetUsing()}");
         }
 
         public static void AddUsing(string assemblyName)
@@ -669,15 +669,15 @@ Doorstop example:
         }
 
 
-        internal const string STARTUP_TEXT = @"<color=#5d8556>// Welcome to the UnityExplorer C# Console!
+        internal const string STARTUP_TEXT = @"<color=#5d8556>// 欢迎使用 UnityExplorer C# 控制台!
 
-// It is recommended to use the Log panel (or a console log window) while using this tool.
-// Use the Help dropdown to see detailed examples of how to use the console.
+// 建议在使用此工具时使用日志面板（或控制台日志窗口）.
+// 使用“帮助”下拉菜单查看有关如何使用控制台的详细示例。
 
-// To execute a script automatically on startup, put the script at 'sinai-dev-UnityExplorer\Scripts\startup.cs'</color>";
+// 要在启动时自动执行脚本，请将脚本放在'sinai-dev-UnityExplorer\Scripts\startup.cs'</color>";
 
-        internal const string HELP_USINGS = @"// You can add a using directive to any namespace, but you must compile for it to take effect.
-// It will remain in effect until you Reset the console.
+        internal const string HELP_USINGS = @"// 您可以将 using 指令添加到任何命名空间，但必须编译才能生效.
+// 它会一直有效，直到您重置控制台.
 using UnityEngine.UI;
 
 // To see your current usings, use the ""GetUsing();"" helper.
@@ -724,14 +724,14 @@ public class HelloWorld
     }
 }
 
-// In REPL, you could call the example method above with ""HelloWorld.Main();""
-// Note: The compiler does not allow you to run REPL code and define classes at the same time.
+// 在 REPL 中，您可以调用上面的示例方法 ""HelloWorld.Main();""
+// 注意：编译器不允许你同时运行 REPL 代码和定义类.
 
 // In REPL, use the ""GetClasses();"" helper to see the classes you have defined since the last Reset.";
 
-        internal const string HELP_COROUTINES = @"// To start a Coroutine directly, use ""Start(SomeCoroutine());"" in REPL mode.
+        internal const string HELP_COROUTINES = @"// 要直接启动协程，请使用 ""Start(SomeCoroutine());"" 在 REPL 模式下.
 
-// To declare a coroutine, you will need to compile it separately. For example:
+// 要声明协程，您需要单独编译它。 例如:
 public class MyCoro
 {
     public static IEnumerator Main()
@@ -740,7 +740,7 @@ public class MyCoro
         UnityExplorer.ExplorerCore.Log(""Hello, world after one frame!"");
     }
 }
-// To run this Coroutine in REPL, it would look like ""Start(MyCoro.Main());""";
+// 要在 REPL 中运行这个协程，它看起来像 ""Start(MyCoro.Main());""";
 
         #endregion
     }

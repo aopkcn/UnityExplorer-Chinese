@@ -65,14 +65,14 @@ namespace UnityExplorer.UI.Widgets
 
             Color color = locked ? new Color(0.3f, 0.3f, 0.2f) : new Color(0.2f, 0.2f, 0.2f);
             RuntimeHelper.SetColorBlock(lockBtn.Component, color, color * 1.2f, color * 0.7f);
-            lockBtn.ButtonText.text = locked ? "Unlock" : "Lock";
+            lockBtn.ButtonText.text = locked ? "Unlock" : "锁定";
         }
 
         // UI Construction
 
         void ConstructUI(GameObject parent)
         {
-            Text timeLabel = UIFactory.CreateLabel(parent, "TimeLabel", "Time:", TextAnchor.MiddleRight, Color.grey);
+            Text timeLabel = UIFactory.CreateLabel(parent, "TimeLabel", "时间:", TextAnchor.MiddleRight, Color.grey);
             UIFactory.SetLayoutElement(timeLabel.gameObject, minHeight: 25, minWidth: 35);
 
             timeInput = UIFactory.CreateInputField(parent, "TimeInput", "timeScale");
@@ -82,7 +82,7 @@ namespace UnityExplorer.UI.Widgets
             timeInput.Text = string.Empty;
             timeInput.Text = Time.timeScale.ToString();
 
-            lockBtn = UIFactory.CreateButton(parent, "PauseButton", "Lock", new Color(0.2f, 0.2f, 0.2f));
+            lockBtn = UIFactory.CreateButton(parent, "PauseButton", "锁定", new Color(0.2f, 0.2f, 0.2f));
             UIFactory.SetLayoutElement(lockBtn.Component.gameObject, minHeight: 25, minWidth: 50);
             lockBtn.OnClick += OnPauseButtonClicked;
         }

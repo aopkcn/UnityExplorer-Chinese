@@ -7,7 +7,7 @@ namespace UnityExplorer.UI.Panels
     {
         public static InspectorPanel Instance { get; private set; }
 
-        public override string Name => "Inspector";
+        public override string Name => "检查器";
         public override UIManager.Panels PanelType => UIManager.Panels.Inspector;
         public override bool ShouldSaveActiveState => false;
 
@@ -48,17 +48,17 @@ namespace UnityExplorer.UI.Panels
 
             // Inspect under mouse dropdown on title bar
 
-            GameObject mouseDropdown = UIFactory.CreateDropdown(closeHolder, "MouseInspectDropdown", out MouseInspectDropdown, "Mouse Inspect", 14,
+            GameObject mouseDropdown = UIFactory.CreateDropdown(closeHolder, "MouseInspectDropdown", out MouseInspectDropdown, "鼠标检查", 14,
                 MouseInspector.OnDropdownSelect);
             UIFactory.SetLayoutElement(mouseDropdown, minHeight: 25, minWidth: 140);
-            MouseInspectDropdown.options.Add(new Dropdown.OptionData("Mouse Inspect"));
-            MouseInspectDropdown.options.Add(new Dropdown.OptionData("World"));
+            MouseInspectDropdown.options.Add(new Dropdown.OptionData("鼠标检查"));
+            MouseInspectDropdown.options.Add(new Dropdown.OptionData("世界"));
             MouseInspectDropdown.options.Add(new Dropdown.OptionData("UI"));
             mouseDropdown.transform.SetSiblingIndex(0);
 
             // add close all button to titlebar
 
-            UniverseLib.UI.Models.ButtonRef closeAllBtn = UIFactory.CreateButton(closeHolder.gameObject, "CloseAllBtn", "Close All",
+            UniverseLib.UI.Models.ButtonRef closeAllBtn = UIFactory.CreateButton(closeHolder.gameObject, "CloseAllBtn", "关闭所有",
                 new Color(0.3f, 0.2f, 0.2f));
             UIFactory.SetLayoutElement(closeAllBtn.Component.gameObject, minHeight: 25, minWidth: 80);
             closeAllBtn.Component.transform.SetSiblingIndex(closeAllBtn.Component.transform.GetSiblingIndex() - 1);

@@ -48,6 +48,6 @@ namespace UnityExplorer.CacheObject
             }
         }
 
-        protected override void TrySetValue(object value) => throw new NotImplementedException("You can't set a method");
+        protected override void TrySetValue(object value) => throw new NotImplementedException("你不能设置方法");
     }
 }

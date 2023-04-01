@@ -16,7 +16,7 @@ namespace UnityExplorer.CacheObject.Views
 
             // Left label
 
-            NameLabel = UIFactory.CreateLabel(UIRoot, "NameLabel", "<notset>", TextAnchor.MiddleLeft);
+            NameLabel = UIFactory.CreateLabel(UIRoot, "NameLabel", "<未设置>", TextAnchor.MiddleLeft);
             NameLabel.horizontalOverflow = HorizontalWrapMode.Wrap;
             UIFactory.SetLayoutElement(NameLabel.gameObject, minHeight: 25, flexibleWidth: 9999, flexibleHeight: 300);
             NameLayout = NameLabel.GetComponent<LayoutElement>();
@@ -33,7 +33,7 @@ namespace UnityExplorer.CacheObject.Views
 
             // Type label
 
-            TypeLabel = UIFactory.CreateLabel(horiGroup, "TypeLabel", "<notset>", TextAnchor.MiddleLeft);
+            TypeLabel = UIFactory.CreateLabel(horiGroup, "TypeLabel", "<未设置>", TextAnchor.MiddleLeft);
             TypeLabel.horizontalOverflow = HorizontalWrapMode.Wrap;
             UIFactory.SetLayoutElement(TypeLabel.gameObject, minHeight: 25, flexibleHeight: 150, minWidth: 60, flexibleWidth: 0);
 
@@ -49,13 +49,13 @@ namespace UnityExplorer.CacheObject.Views
 
             // Apply
 
-            ApplyButton = UIFactory.CreateButton(horiGroup, "ApplyButton", "Apply", new Color(0.15f, 0.19f, 0.15f));
+            ApplyButton = UIFactory.CreateButton(horiGroup, "ApplyButton", "应用", new Color(0.15f, 0.19f, 0.15f));
             UIFactory.SetLayoutElement(ApplyButton.Component.gameObject, minWidth: 70, minHeight: 25, flexibleWidth: 0, flexibleHeight: 0);
             ApplyButton.OnClick += ApplyClicked;
 
             // Main value label
 
-            ValueLabel = UIFactory.CreateLabel(horiGroup, "ValueLabel", "Value goes here", TextAnchor.MiddleLeft);
+            ValueLabel = UIFactory.CreateLabel(horiGroup, "ValueLabel", "值在这里", TextAnchor.MiddleLeft);
             ValueLabel.horizontalOverflow = HorizontalWrapMode.Wrap;
             UIFactory.SetLayoutElement(ValueLabel.gameObject, minHeight: 25, flexibleHeight: 150, flexibleWidth: 9999);
 

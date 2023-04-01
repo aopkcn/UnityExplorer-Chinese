@@ -76,6 +76,6 @@ namespace UnityExplorer.CacheObject
             }
         }
 
-        protected override void TrySetValue(object value) => throw new NotImplementedException("You can't set a constructor");
+        protected override void TrySetValue(object value) => throw new NotImplementedException("您不能设置构造函数");
     }
 }

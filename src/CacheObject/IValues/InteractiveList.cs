@@ -186,14 +186,14 @@ namespace UnityExplorer.CacheObject.IValues
 
                     if (genericIndexer == null)
                     {
-                        ExplorerCore.LogWarning($"Failed to find indexer property for IList<T> type '{type.FullName}'!");
+                        ExplorerCore.LogWarning($"找不到 IList<T> 类型的索引器属性 '{type.FullName}'!");
                         IsWritableGenericIList = false;
                     }
                 }
             }
             catch (Exception ex)
             {
-                ExplorerCore.LogWarning($"Exception processing IEnumerable for IList<T> check: {ex.ReflectionExToString()}");
+                ExplorerCore.LogWarning($"异常处理IEnumerable的IList<T>检查: {ex.ReflectionExToString()}");
                 IsWritableGenericIList = false;
             }
         }
@@ -221,7 +221,7 @@ namespace UnityExplorer.CacheObject.IValues
             }
             catch (Exception ex)
             {
-                ExplorerCore.LogWarning($"Exception setting IList value: {ex}");
+                ExplorerCore.LogWarning($"设置IList值的异常情况: {ex}");
             }
         }
 

@@ -16,7 +16,7 @@ namespace UnityExplorer.UI.Panels
         {
         }
 
-        public override string Name => "Freecam";
+        public override string Name => "自由摄像头";
         public override UIManager.Panels PanelType => UIManager.Panels.Freecam;
         public override int MinWidth => 400;
         public override int MinHeight => 320;
@@ -86,7 +86,7 @@ namespace UnityExplorer.UI.Panels
             {
                 if (!lastMainCamera)
                 {
-                    ExplorerCore.LogWarning($"There is no previous Camera found, reverting to default Free Cam.");
+                    ExplorerCore.LogWarning($"没有找到以前的摄像头，恢复为默认的免费摄像头.");
                     useGameCameraToggle.isOn = false;
                 }
                 else
@@ -177,7 +177,7 @@ namespace UnityExplorer.UI.Panels
 
         protected override void ConstructPanelContent()
         {
-            startStopButton = UIFactory.CreateButton(ContentRoot, "ToggleButton", "Freecam");
+            startStopButton = UIFactory.CreateButton(ContentRoot, "ToggleButton", "自由摄像头");
             UIFactory.SetLayoutElement(startStopButton.GameObject, minWidth: 150, minHeight: 25, flexibleWidth: 9999);
             startStopButton.OnClick += StartStopButton_OnClick;
             SetToggleButtonState();
@@ -188,36 +188,36 @@ namespace UnityExplorer.UI.Panels
             UIFactory.SetLayoutElement(toggleObj, minHeight: 25, flexibleWidth: 9999);
             useGameCameraToggle.onValueChanged.AddListener(OnUseGameCameraToggled);
             useGameCameraToggle.isOn = false;
-            toggleText.text = "Use Game Camera?";
+            toggleText.text = "使用游戏摄像头?";
 
             AddSpacer(5);
 
-            GameObject posRow = AddInputField("Position", "Freecam Pos:", "eg. 0 0 0", out positionInput, PositionInput_OnEndEdit);
+            GameObject posRow = AddInputField("Position", "自由摄像头位置:", "eg. 0 0 0", out positionInput, PositionInput_OnEndEdit);
 
-            ButtonRef resetPosButton = UIFactory.CreateButton(posRow, "ResetButton", "Reset");
+            ButtonRef resetPosButton = UIFactory.CreateButton(posRow, "ResetButton", "重置");
             UIFactory.SetLayoutElement(resetPosButton.GameObject, minWidth: 70, minHeight: 25);
             resetPosButton.OnClick += OnResetPosButtonClicked;
 
             AddSpacer(5);
 
-            AddInputField("MoveSpeed", "Move Speed:", "Default: 1", out moveSpeedInput, MoveSpeedInput_OnEndEdit);
+            AddInputField("MoveSpeed", "移动速度:", "默认: 1", out moveSpeedInput, MoveSpeedInput_OnEndEdit);
             moveSpeedInput.Text = desiredMoveSpeed.ToString();
 
             AddSpacer(5);
 
-            string instructions = @"Controls:
+            string instructions = @"控件:
 - WASD / Arrows: Movement
-- Space / PgUp: Move up
-- LeftCtrl / PgDown: Move down
-- Right Mouse Button: Free look
-- Shift: Super speed";
+- Space / PgUp: 向上移动
+- LeftCtrl / PgDown: 向下移动
+- 鼠标右键: 自由观看
+- Shift: 超级速度";
 
             Text instructionsText = UIFactory.CreateLabel(ContentRoot, "Instructions", instructions, TextAnchor.UpperLeft);
             UIFactory.SetLayoutElement(instructionsText.gameObject, flexibleWidth: 9999, flexibleHeight: 9999);
 
             AddSpacer(5);
 
-            inspectButton = UIFactory.CreateButton(ContentRoot, "InspectButton", "Inspect Free Camera");
+            inspectButton = UIFactory.CreateButton(ContentRoot, "InspectButton", "检查免费摄像头");
             UIFactory.SetLayoutElement(inspectButton.GameObject, flexibleWidth: 9999, minHeight: 25);
             inspectButton.OnClick += () => { InspectorManager.Inspect(ourCamera); };
             inspectButton.GameObject.SetActive(false);
@@ -262,12 +262,12 @@ namespace UnityExplorer.UI.Panels
             if (inFreeCamMode)
             {
                 RuntimeHelper.SetColorBlockAuto(startStopButton.Component, new(0.4f, 0.2f, 0.2f));
-                startStopButton.ButtonText.text = "End Freecam";
+                startStopButton.ButtonText.text = "结束自由摄像头";
             }
             else
             {
                 RuntimeHelper.SetColorBlockAuto(startStopButton.Component, new(0.2f, 0.4f, 0.2f));
-                startStopButton.ButtonText.text = "Begin Freecam";
+                startStopButton.ButtonText.text = "开始自由摄像头";
             }
         }
 
@@ -302,7 +302,7 @@ namespace UnityExplorer.UI.Panels
 
             if (!ParseUtility.TryParse(input, out Vector3 parsed, out Exception parseEx))
             {
-                ExplorerCore.LogWarning($"Could not parse position to Vector3: {parseEx.ReflectionExToString()}");
+                ExplorerCore.LogWarning($"无法将位置解析为 Vector3: {parseEx.ReflectionExToString()}");
                 UpdatePositionInput();
                 return;
             }
@@ -316,7 +316,7 @@ namespace UnityExplorer.UI.Panels
 
             if (!ParseUtility.TryParse(input, out float parsed, out Exception parseEx))
             {
-                ExplorerCore.LogWarning($"Could not parse value: {parseEx.ReflectionExToString()}");
+                ExplorerCore.LogWarning($"无法解析值: {parseEx.ReflectionExToString()}");
                 moveSpeedInput.Text = desiredMoveSpeed.ToString();
                 return;
             }

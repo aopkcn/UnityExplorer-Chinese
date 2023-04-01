@@ -166,7 +166,7 @@ namespace UnityExplorer.ObjectExplorer
             GameObject contextGroup = UIFactory.CreateHorizontalGroup(uiRoot, "SearchContextRow", false, true, true, true, 2, new Vector4(2, 2, 2, 2));
             UIFactory.SetLayoutElement(contextGroup, minHeight: 25, flexibleHeight: 0);
 
-            Text contextLbl = UIFactory.CreateLabel(contextGroup, "SearchContextLabel", "Searching for:", TextAnchor.MiddleLeft);
+            Text contextLbl = UIFactory.CreateLabel(contextGroup, "SearchContextLabel", "正在寻找:", TextAnchor.MiddleLeft);
             UIFactory.SetLayoutElement(contextLbl.gameObject, minWidth: 110, flexibleWidth: 0);
 
             GameObject contextDropObj = UIFactory.CreateDropdown(contextGroup, "ContextDropdown", out Dropdown contextDrop, null, 14, OnContextDropdownChanged);
@@ -179,7 +179,7 @@ namespace UnityExplorer.ObjectExplorer
             classInputRow = UIFactory.CreateHorizontalGroup(uiRoot, "ClassRow", false, true, true, true, 2, new Vector4(2, 2, 2, 2));
             UIFactory.SetLayoutElement(classInputRow, minHeight: 25, flexibleHeight: 0);
 
-            Text unityClassLbl = UIFactory.CreateLabel(classInputRow, "ClassLabel", "Class filter:", TextAnchor.MiddleLeft);
+            Text unityClassLbl = UIFactory.CreateLabel(classInputRow, "ClassLabel", "类别筛选:", TextAnchor.MiddleLeft);
             UIFactory.SetLayoutElement(unityClassLbl.gameObject, minWidth: 110, flexibleWidth: 0);
 
             InputFieldRef classInputField = UIFactory.CreateInputField(classInputRow, "ClassInput", "...");
@@ -197,7 +197,7 @@ namespace UnityExplorer.ObjectExplorer
             childFilterRow = UIFactory.CreateHorizontalGroup(uiRoot, "ChildFilterRow", false, true, true, true, 2, new Vector4(2, 2, 2, 2));
             UIFactory.SetLayoutElement(childFilterRow, minHeight: 25, flexibleHeight: 0);
 
-            Text childLbl = UIFactory.CreateLabel(childFilterRow, "ChildLabel", "Child filter:", TextAnchor.MiddleLeft);
+            Text childLbl = UIFactory.CreateLabel(childFilterRow, "ChildLabel", "子筛选:", TextAnchor.MiddleLeft);
             UIFactory.SetLayoutElement(childLbl.gameObject, minWidth: 110, flexibleWidth: 0);
 
             GameObject childDropObj = UIFactory.CreateDropdown(childFilterRow, "ChildFilterDropdown", out Dropdown childDrop, null, 14, OnChildFilterDropChanged);
@@ -212,7 +212,7 @@ namespace UnityExplorer.ObjectExplorer
             sceneFilterRow = UIFactory.CreateHorizontalGroup(uiRoot, "SceneFilterRow", false, true, true, true, 2, new Vector4(2, 2, 2, 2));
             UIFactory.SetLayoutElement(sceneFilterRow, minHeight: 25, flexibleHeight: 0);
 
-            Text sceneLbl = UIFactory.CreateLabel(sceneFilterRow, "SceneLabel", "Scene filter:", TextAnchor.MiddleLeft);
+            Text sceneLbl = UIFactory.CreateLabel(sceneFilterRow, "SceneLabel", "场景筛选:", TextAnchor.MiddleLeft);
             UIFactory.SetLayoutElement(sceneLbl.gameObject, minWidth: 110, flexibleWidth: 0);
 
             GameObject sceneDropObj = UIFactory.CreateDropdown(sceneFilterRow, "SceneFilterDropdown", out Dropdown sceneDrop, null, 14, OnSceneFilterDropChanged);
@@ -231,7 +231,7 @@ namespace UnityExplorer.ObjectExplorer
             nameInputRow = UIFactory.CreateHorizontalGroup(uiRoot, "NameRow", true, true, true, true, 2, new Vector4(2, 2, 2, 2));
             UIFactory.SetLayoutElement(nameInputRow, minHeight: 25, flexibleHeight: 0);
 
-            Text nameLbl = UIFactory.CreateLabel(nameInputRow, "NameFilterLabel", "Name contains:", TextAnchor.MiddleLeft);
+            Text nameLbl = UIFactory.CreateLabel(nameInputRow, "NameFilterLabel", "名称包含:", TextAnchor.MiddleLeft);
             UIFactory.SetLayoutElement(nameLbl.gameObject, minWidth: 110, flexibleWidth: 0);
 
             nameInputField = UIFactory.CreateInputField(nameInputRow, "NameFilterInput", "...");
@@ -239,7 +239,7 @@ namespace UnityExplorer.ObjectExplorer
 
             // Search button
 
-            ButtonRef searchButton = UIFactory.CreateButton(uiRoot, "SearchButton", "Search");
+            ButtonRef searchButton = UIFactory.CreateButton(uiRoot, "SearchButton", "搜索");
             UIFactory.SetLayoutElement(searchButton.Component.gameObject, minHeight: 25, flexibleHeight: 0);
             searchButton.OnClick += DoSearch;
 
@@ -248,7 +248,7 @@ namespace UnityExplorer.ObjectExplorer
             GameObject resultsCountRow = UIFactory.CreateHorizontalGroup(uiRoot, "ResultsCountRow", true, true, true, true);
             UIFactory.SetLayoutElement(resultsCountRow, minHeight: 25, flexibleHeight: 0);
 
-            resultsLabel = UIFactory.CreateLabel(resultsCountRow, "ResultsLabel", "0 results", TextAnchor.MiddleCenter);
+            resultsLabel = UIFactory.CreateLabel(resultsCountRow, "ResultsLabel", "0 结果", TextAnchor.MiddleCenter);
 
             // RESULTS SCROLL POOL
 

@@ -37,7 +37,7 @@ namespace UnityExplorer.Inspectors
         internal static readonly string UIBaseGUID = $"{ExplorerCore.GUID}.MouseInspector";
         internal static UIBase inspectorUIBase;
 
-        public override string Name => "Inspect Under Mouse";
+        public override string Name => "在鼠标下检查";
         public override int MinWidth => -1;
         public override int MinHeight => -1;
         public override Vector2 DefaultAnchorMin => Vector2.zero;
@@ -86,7 +86,7 @@ namespace UnityExplorer.Inspectors
         {
             CurrentInspector.ClearHitData();
 
-            objNameLabel.text = "No hits...";
+            objNameLabel.text = "没有点击...";
             objPathLabel.text = "";
         }
 
@@ -100,7 +100,7 @@ namespace UnityExplorer.Inspectors
             UIManager.UiBase.Panels.PanelHolder.SetActive(true);
 
             Dropdown drop = InspectorPanel.Instance.MouseInspectDropdown;
-            if (drop.transform.Find("Dropdown List") is Transform list)
+            if (drop.transform.Find("下拉列表") is Transform list)
                 drop.DestroyDropdownList(list.gameObject);
 
             UIRoot.SetActive(false);
@@ -153,7 +153,7 @@ namespace UnityExplorer.Inspectors
             lastMousePos = mousePos;
 
             // use the raw mouse pos for the label
-            mousePosLabel.text = $"<color=grey>Mouse Position:</color> {mousePos.ToString()}";
+            mousePosLabel.text = $"<color=grey>鼠标位置:</color> {mousePos.ToString()}";
 
             // constrain the mouse pos we use within certain bounds
             if (mousePos.x < 350)
@@ -195,13 +195,13 @@ namespace UnityExplorer.Inspectors
 
             Text title = UIFactory.CreateLabel(inspectContent,
                 "InspectLabel",
-                "<b>Mouse Inspector</b> (press <b>ESC</b> to cancel)",
+                "<b>鼠标检查</b> (按 <b>ESC</b> 取消)",
                 TextAnchor.MiddleCenter);
             UIFactory.SetLayoutElement(title.gameObject, flexibleWidth: 9999);
 
-            mousePosLabel = UIFactory.CreateLabel(inspectContent, "MousePosLabel", "Mouse Position:", TextAnchor.MiddleCenter);
+            mousePosLabel = UIFactory.CreateLabel(inspectContent, "MousePosLabel", "鼠标位置:", TextAnchor.MiddleCenter);
 
-            objNameLabel = UIFactory.CreateLabel(inspectContent, "HitLabelObj", "No hits...", TextAnchor.MiddleLeft);
+            objNameLabel = UIFactory.CreateLabel(inspectContent, "HitLabelObj", "没有点击...", TextAnchor.MiddleLeft);
             objNameLabel.horizontalOverflow = HorizontalWrapMode.Overflow;
 
             objPathLabel = UIFactory.CreateLabel(inspectContent, "PathLabel", "", TextAnchor.MiddleLeft);

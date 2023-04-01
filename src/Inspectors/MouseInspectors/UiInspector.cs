@@ -70,9 +70,9 @@ namespace UnityExplorer.Inspectors.MouseInspectors
             }
 
             if (currentHitObjects.Any())
-                MouseInspector.Instance.objNameLabel.text = $"Click to view UI Objects under mouse: {currentHitObjects.Count}";
+                MouseInspector.Instance.objNameLabel.text = $"单击以查看鼠标下的 UI 对象: {currentHitObjects.Count}";
             else
-                MouseInspector.Instance.objNameLabel.text = $"No UI objects under mouse.";
+                MouseInspector.Instance.objNameLabel.text = $"鼠标下没有 UI 对象.";
         }
 
         private static void SetupUIRaycast()

@@ -152,7 +152,7 @@ namespace UnityExplorer.CacheObject
             }
             catch (Exception e)
             {
-                ExplorerCore.LogWarning($"Exception caching member {member.DeclaringType.FullName}.{member.Name}!");
+                ExplorerCore.LogWarning($"异常缓存成员 {member.DeclaringType.FullName}.{member.Name}!");
                 ExplorerCore.Log(e);
             }
         }

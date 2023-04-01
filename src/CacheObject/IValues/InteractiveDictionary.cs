@@ -147,7 +147,7 @@ namespace UnityExplorer.CacheObject.IValues
             }
             catch (Exception ex)
             {
-                ExplorerCore.LogWarning($"Exception setting IDictionary key! {ex}");
+                ExplorerCore.LogWarning($"异常设置 IDictionary key! {ex}");
             }
         }
 

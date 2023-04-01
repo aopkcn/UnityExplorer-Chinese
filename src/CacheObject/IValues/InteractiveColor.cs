@@ -134,7 +134,7 @@ namespace UnityExplorer.CacheObject.IValues
             }
             catch (Exception ex)
             {
-                ExplorerCore.LogWarning("InteractiveColor OnSlider: " + ex.ToString());
+                ExplorerCore.LogWarning("滑块上的交互式颜色: " + ex.ToString());
             }
         }
 
@@ -160,7 +160,7 @@ namespace UnityExplorer.CacheObject.IValues
 
             // apply button
 
-            applyButton = UIFactory.CreateButton(horiGroup, "ApplyButton", "Apply", new Color(0.2f, 0.26f, 0.2f));
+            applyButton = UIFactory.CreateButton(horiGroup, "ApplyButton", "应用", new Color(0.2f, 0.26f, 0.2f));
             UIFactory.SetLayoutElement(applyButton.Component.gameObject, minHeight: 25, minWidth: 90);
             applyButton.OnClick += SetValueToOwner;
 

@@ -6,7 +6,7 @@ namespace UnityExplorer.UI.Panels
 {
     public class ObjectExplorerPanel : UEPanel
     {
-        public override string Name => "Object Explorer";
+        public override string Name => "对象资源管理器";
         public override UIManager.Panels PanelType => UIManager.Panels.ObjectExplorer;
 
         public override int MinWidth => 350;
@@ -85,7 +85,7 @@ namespace UnityExplorer.UI.Panels
         protected override void ConstructPanelContent()
         {
             // Tab bar
-            GameObject tabGroup = UIFactory.CreateHorizontalGroup(ContentRoot, "TabBar", true, true, true, true, 2, new Vector4(2, 2, 2, 2));
+            GameObject tabGroup = UIFactory.CreateHorizontalGroup(ContentRoot, "标签栏", true, true, true, true, 2, new Vector4(2, 2, 2, 2));
             UIFactory.SetLayoutElement(tabGroup, minHeight: 25, flexibleHeight: 0);
 
             // Scene Explorer
@@ -99,8 +99,8 @@ namespace UnityExplorer.UI.Panels
             tabPages.Add(ObjectSearch);
 
             // set up tabs
-            AddTabButton(tabGroup, "Scene Explorer");
-            AddTabButton(tabGroup, "Object Search");
+            AddTabButton(tabGroup, "场景资源管理器");
+            AddTabButton(tabGroup, "对象搜索");
 
             // default active state: Active
             this.SetActive(true);

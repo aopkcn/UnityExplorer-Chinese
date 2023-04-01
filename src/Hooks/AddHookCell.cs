@@ -41,11 +41,11 @@ namespace UnityExplorer.Hooks
             UIFactory.SetLayoutElement(UIRoot, minWidth: 100, flexibleWidth: 9999, minHeight: 30, flexibleHeight: 600);
             UIRoot.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
 
-            HookButton = UIFactory.CreateButton(UIRoot, "HookButton", "Hook", new Color(0.2f, 0.25f, 0.2f));
+            HookButton = UIFactory.CreateButton(UIRoot, "HookButton", "钩子", new Color(0.2f, 0.25f, 0.2f));
             UIFactory.SetLayoutElement(HookButton.Component.gameObject, minHeight: 25, minWidth: 100);
             HookButton.OnClick += OnHookClicked;
 
-            MethodNameLabel = UIFactory.CreateLabel(UIRoot, "MethodName", "NOT SET", TextAnchor.MiddleLeft);
+            MethodNameLabel = UIFactory.CreateLabel(UIRoot, "MethodName", "未设置", TextAnchor.MiddleLeft);
             UIFactory.SetLayoutElement(MethodNameLabel.gameObject, minHeight: 25, flexibleWidth: 9999);
 
             return UIRoot;
