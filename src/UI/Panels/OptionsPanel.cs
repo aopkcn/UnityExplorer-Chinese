@@ -68,7 +68,7 @@ namespace UnityExplorer.UI.Panels
         {
             // Save button
 
-            UniverseLib.UI.Models.ButtonRef saveBtn = UIFactory.CreateButton(this.ContentRoot, "Save", "保存 Options", new Color(0.2f, 0.3f, 0.2f));
+            UniverseLib.UI.Models.ButtonRef saveBtn = UIFactory.CreateButton(this.ContentRoot, "Save", "保存选项", new Color(0.2f, 0.3f, 0.2f));
             UIFactory.SetLayoutElement(saveBtn.Component.gameObject, flexibleWidth: 9999, minHeight: 30, flexibleHeight: 0);
             saveBtn.OnClick += ConfigManager.Handler.SaveConfig;
 

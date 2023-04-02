@@ -65,7 +65,7 @@ namespace UnityExplorer.UI.Widgets
 
             Color color = locked ? new Color(0.3f, 0.3f, 0.2f) : new Color(0.2f, 0.2f, 0.2f);
             RuntimeHelper.SetColorBlock(lockBtn.Component, color, color * 1.2f, color * 0.7f);
-            lockBtn.ButtonText.text = locked ? "Unlock" : "锁定";
+            lockBtn.ButtonText.text = locked ? "解锁" : "锁定";
         }
 
         // UI Construction
